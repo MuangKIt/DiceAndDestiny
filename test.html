@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice & Destiny | Board Game Cafe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        body { font-family: 'Kanit', sans-serif; background-color: #f8f9fa; }
+        .navbar { background-color: #2c3e50; }
+        .hero-section { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=1350&q=80'); 
+                        background-size: cover; color: white; padding: 100px 0; }
+        .game-card:hover { transform: translateY(-5px); transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .btn-primary { background-color: #e67e22; border: none; }
+        .btn-primary:hover { background-color: #d35400; }
+        .section-padding { padding: 60px 0; }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-dice-d20 me-2"></i>Dice & Destiny</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#home">หน้าแรก</a></li>
+                <li class="nav-item"><a class="nav-link" href="#games">รายการบอร์ดเกม</a></li>
+                <li class="nav-item"><a class="nav-link" href="#rooms">จองห้อง</a></li>
+                <li class="nav-item"><a class="nav-link" href="#library"><i class="fas fa-heart text-danger"></i> My List</a></li>
+                <li class="nav-item"><a class="nav-link btn btn-outline-light ms-lg-3" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">เข้าสู่ระบบ</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header id="home" class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-3 fw-bold">ปลดปล่อยความสนุกที่ Dice & Destiny</h1>
+        <p class="lead">จองโต๊ะล่วงหน้า หรือเลือกชมบอร์ดเกมกว่า 500 เกมได้ที่นี่</p>
+        <a href="#rooms" class="btn btn-primary btn-lg px-5">จองเลยตอนนี้</a>
+    </div>
+</header>
+
+<section id="games" class="container section-padding">
+    <h2 class="mb-4 text-center fw-bold">คลังบอร์ดเกมของเรา</h2>
+    <div class="row g-4" id="game-container">
+        </div>
+</section>
+
+<section id="rooms" class="bg-light section-padding">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2 class="fw-bold mb-4">จองห้องเล่นเกม</h2>
+                <form id="bookingForm">
+                    <div class="mb-3">
+                        <label class="form-label">ชื่อผู้จอง</label>
+                        <input type="text" class="form-control" placeholder="ระบุชื่อของคุณ" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">วันที่</label>
+                            <input type="date" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">เวลา</label>
+                            <input type="time" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">ประเภทห้อง</label>
+                        <select class="form-select">
+                            <option value="standard">Standard Zone (4-6 คน)</option>
+                            <option value="private">Private Room (VIP 8-10 คน)</option>
+                            <option value="warroom">War Room (สาย Hardcore 12+ คน)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">ยืนยันการจอง</button>
+                </form>
+            </div>
+            <div class="col-md-6 d-none d-md-block text-center">
+                <img src="https://images.unsplash.com/photo-1593504049359-74330189a345?auto=format&fit=crop&w=500&q=80" class="img-fluid rounded shadow" alt="Room">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="library" class="container section-padding">
+    <h2 class="fw-bold mb-4 text-center">รายการที่บันทึกไว้ (My List)</h2>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>รูปภาพ</th>
+                    <th>ชื่อเกม</th>
+                    <th>ประเภท</th>
+                    <th>สถานะการยืม</th>
+                    <th>ลบ</th>
+                </tr>
+            </thead>
+            <tbody id="library-items">
+                <tr id="empty-msg"><td colspan="5" class="text-center">ยังไม่ได้เลือกเกมที่สนใจ</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<div class="modal fade" id="loginModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">เข้าสู่ระบบ</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="อีเมล">
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" placeholder="รหัสผ่าน">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">เข้าสู่ระบบ</button>
+                    <hr>
+                    <p class="text-center">ยังไม่มีบัญชี? <a href="#">สมัครสมาชิก</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // ข้อมูลบอร์ดเกมสมมติ
+    const games = [
+        { id: 1, title: "Catan", type: "Strategy", status: "พร้อมยืม", img: "https://cf.geekdo-images.com/W3Bs9h6sHXqYvAAr_9_K3w__itemrep/img/8u_9zH_sNoV87v6AInz09S36H6Q=/fit-in/246x300/filters:strip_icc()/pic24193.jpg" },
+        { id: 2, title: "Splendor", type: "Card Game", status: "ถูกยืมอยู่", img: "https://cf.geekdo-images.com/rw3R_u9vC9S90v4t5z09S36H6Q=/fit-in/246x300/filters:strip_icc()/pic1904079.jpg" },
+        { id: 3, title: "Exploding Kittens", type: "Party", status: "พร้อมยืม", img: "https://cf.geekdo-images.com/N8v9S09S36H6Q=/fit-in/246x300/filters:strip_icc()/pic2691976.png" },
+        { id: 4, title: "Azul", type: "Abstract", status: "พร้อมยืม", img: "https://cf.geekdo-images.com/tzm9S09S36H6Q=/fit-in/246x300/filters:strip_icc()/pic3718275.jpg" }
+    ];
+
+    const gameContainer = document.getElementById('game-container');
+    const libraryItems = document.getElementById('library-items');
+
+    // แสดงรายการเกม
+    games.forEach(game => {
+        gameContainer.innerHTML += `
+            <div class="col-md-3">
+                <div class="card h-100 game-card">
+                    <img src="${game.img}" class="card-img-top" alt="${game.title}" style="height: 200px; object-fit: cover;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title fw-bold">${game.title}</h5>
+                        <p class="text-muted small">${game.type}</p>
+                        <span class="badge ${game.status === 'พร้อมยืม' ? 'bg-success' : 'bg-danger'} mb-3">${game.status}</span>
+                        <button onclick="addToLibrary(${game.id})" class="btn btn-outline-primary w-100">สนใจเกมนี้</button>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    // ระบบเพิ่มเกมใน My List
+    function addToLibrary(id) {
+        const game = games.find(g => g.id === id);
+        const emptyMsg = document.getElementById('empty-msg');
+        if (emptyMsg) emptyMsg.remove();
+
+        const row = `
+            <tr>
+                <td><img src="${game.img}" width="50"></td>
+                <td>${game.title}</td>
+                <td>${game.type}</td>
+                <td><span class="badge bg-info text-dark">รอยืนยันที่หน้าร้าน</span></td>
+                <td><button class="btn btn-sm btn-danger" onclick="this.parentElement.parentElement.remove()"><i class="fas fa-trash"></i></button></td>
+            </tr>
+        `;
+        libraryItems.innerHTML += row;
+        alert(`เพิ่ม ${game.title} เข้าในรายการของคุณแล้ว!`);
+    }
+
+    // แจ้งเตือนการจองห้อง
+    document.getElementById('bookingForm').onsubmit = (e) => {
+        e.preventDefault();
+        alert('การจองห้องของคุณถูกส่งไปยังระบบแล้ว! กรุณารอรับอีเมลยืนยัน');
+    };
+</script>
+</body>
+</html>

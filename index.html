@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice & Destiny | Board Game Cafe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { 
+            font-family: 'Kanit', sans-serif; 
+            background-color: #e9ecef; /* ปรับพื้นหลังเข้มขึ้นนิดหน่วยเพื่อให้ Wrapper เด่น */
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-wrapper {
+            background-color: #ffffff;
+            box-shadow: 0 0 40px rgba(0,0,0,0.15);
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            max-width: 1100px; /* บีบขนาดให้แคบลงตามที่ต้องการ */
+            margin: 0 auto;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/coverImg.jpg');
+            background-size: cover; 
+            background-position: center;
+            height: 55vh; 
+            color: white; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center;
+        }
+
+        /* Info Bar Styles */
+        .info-bar {
+            background-color: #ffffff;
+            border-top: 2px solid #eee;
+            border-bottom: 2px solid #eee;
+        }
+        .v-line {
+            width: 1px;
+            height: 100px;
+            background-color: #dee2e6;
+            margin: 0 15px;
+        }
+        .info-item i {
+            color: #5F727D; 
+            margin-bottom: 8px;
+        }
+
+        .card-img-top {
+            height: 150px;
+            width: 100%;
+            object-fit: contain;
+            background-color: #f8f9fa;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+
+    </style>
+</head>
+<body class="bg-gradient">
+
+<div class="main-wrapper shadow-lg">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid"> 
+            <a class="navbar-brand fw-bold" href="index.html"><i class="fas fa-dice-d20 me-2"></i>DICE & DESTINY</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">หน้าแรก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="rooms.html">จองห้อง</a></li>
+                    <li class="nav-item"><a class="nav-link" href="boardgames.html">รายการบอร์ดเกม</a></li>
+                    <li class="nav-item"><a class="nav-link" href="library.html">รายการของฉัน</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-primary text-white ms-lg-3" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">เข้าสู่ระบบ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section shadow">
+        <div class="container">
+            <h1 class="display-4 fw-bold ">ร้านบอร์ดเกม DICE & DESTINY</h1>
+            <p class="fs-5 lead">จองห้องเล่นบอร์ดเกมคุณภาพ หรือเลือกยืมบอร์ดเกมที่ต้องการได้ง่ายๆ</p>
+            <a href="rooms.html" class="btn btn-outline-light btn-lg px-4 me-3" data-aos="fade-inS" data-aos-delay="200">จองห้องตอนนี้</a>
+            <a href="boardgames.html" class="btn btn-outline-light btn-lg px-4" data-aos="fade-inS" data-aos-delay="200">ดูบอร์ดเกม</a>
+        </div>
+    </header>
+
+    <section class="info-bar py-4 mt-3">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-around align-items-center align-items-md-center text-center">
+                
+                <div class="info-item mb-4 px-3" data-aos="fade-down" data-aos-delay="200">
+                    <i class="fas fa-map-marker-alt fa-4x"></i>
+                    <h4 class="fw-bold mb-2 mt-4">Location</h4>
+                    <p class="text-muted mb-0 fs-5 fw-light">123 พัฒนาการ, กรุงเทพฯ 10110</p>
+                </div>
+
+                <div class="v-line d-none d-md-block"></div>
+
+                <div class="info-item mb-4 px-3 mt-3" data-aos="fade-down" data-aos-delay="400">
+                    <i class="fas fa-clock fa-4x"></i>
+                    <h5 class="fw-bold mb-2 mt-4">Open</h5>
+                    <p class="text-muted mb-0 fs-5 fw-light">จันทร์ - อาทิตย์<br>10:00 - 22:00 น.</p>
+                </div>
+
+                <div class="v-line d-none d-md-block"></div>
+
+                <div class="info-item px-3 mt-4" data-aos="fade-down" data-aos-delay="600">
+                    <i class="fas fa-paper-plane fa-4x"></i>
+                    <h5 class="fw-bold mb-2 mt-4">Contact Us</h5>
+                    <p class="text-muted mb-0 fs-5 fw-light">089-444-xxxx | info@dice.com</p>
+                    <div class="social-icons mt-2">
+                        <a href="#" class="me-2"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container p-5 mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold">บอร์ดเกมแนะนำ</h2>
+            <a href="boardgames.html" class="btn btn-outline-dark">ดูทั้งหมด</a>
+        </div>
+        <div class="row g-4">
+
+            <div class="col-md-4" data-aos="zoom-in-down">
+                <div class="card shadow-sm h-100">
+                    <img src="images\dnd.jpg" class="card-img-top" alt="D&D">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">D&D</h5>
+                        <p class="card-text text-muted small">สวมบทบาทเป็นผู้กล้าในโลกแฟนตาซี ผจญภัยตามเนื้อเรื่องที่ Dungeon Master เป็นผู้กำหนด</p>
+                        <button class="btn btn-outline-dark btn-sm w-100 hover-btn">
+                            <i class="fas fa-plus me-1"></i> เพิ่มในรายการ
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="zoom-in-down" data-aos-delay="200">
+                <div class="card shadow-sm h-100">
+                    <img src="images\werewolf.jpg" class="card-img-top" alt="WereWolf">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">WereWolf</h5>
+                        <p class="card-text text-muted small">เกมล่าหมาป่าสุดคลาสสิก แบ่งฝ่ายชาวบ้านและหมาป่า ใช้การบลัฟและจับโกหกเพื่อหาตัวคนร้าย</p>
+                        <button class="btn btn-outline-dark btn-sm w-100 hover-btn">
+                            <i class="fas fa-plus me-1"></i> เพิ่มในรายการ
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="zoom-in-down" data-aos-delay="400">
+                <div class="card shadow-sm h-100">
+                    <img src="images\exploding_kittens.jpg" class="card-img-top" alt="Exploding Kittens">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold">Exploding Kittens</h5>
+                        <p class="card-text text-muted small">เกมการ์ดแนว Russian Roulette อาร์ทเป็นน้องแมว ใครจั่วโดนแมวระเบิดคือแพ้</p>
+                        <button class="btn btn-outline-dark btn-sm w-100 hover-btn">
+                            <i class="fas fa-plus me-1"></i> เพิ่มในรายการ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">© 2026 Dice & Destiny Board Game Cafe. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</div> 
+
+<div class="modal fade" id="loginModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold">เข้าสู่ระบบ / สมัครสมาชิก</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label class="form-label">อีเมล</label>
+                        <input type="email" class="form-control" placeholder="example@mail.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">รหัสผ่าน</label>
+                        <input type="password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-dark w-100 mb-3">เข้าสู่ระบบ</button>
+                    <p class="text-center small">ยังไม่มีบัญชี? <a href="#" class="text-primary">สมัครสมาชิก</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 500
+  });
+</script>
+
+<script>
+    function addToMyList(gameName) {
+        alert(gameName + " ถูกเพิ่มลงในรายการ 'My List' แล้ว!");
+    }
+</script>
+</body>
+</html>
