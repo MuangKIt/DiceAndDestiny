@@ -13,6 +13,7 @@
             font-family: 'Kanit', sans-serif; 
             background-color: #e9ecef;
             margin: 0;
+            user-select: none; 
         }
 
         .hero-section {
@@ -28,7 +29,7 @@
         }
 
         .main-wrapper {
-            background-color: #ffffff;
+            background-color: #fcfcfc;
             box-shadow: 0 0 40px rgba(0,0,0,0.15);
             padding: 0;
             min-height: 100vh;
@@ -36,6 +37,13 @@
             flex-direction: column;
             max-width: 1100px; /* บีบขนาดให้แคบลงตามที่ต้องการ */
             margin: 0 auto;
+        }
+
+        .v-line {
+            width: 1px;
+            height: 120px;
+            background-color: #dee2e6;
+            margin: 0 15px;
         }
 
         footer {
@@ -47,7 +55,26 @@
             border-radius: 8px;
             overflow: hidden;
         }
+
+        /* ปุ่มลบแบบกลมๆ */
+        .btn-remove {
+            color: #dc3545;
+            background: #fff5f5;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            transition: all 0.2s;
+        }
+
+        .btn-remove:hover {
+            background: #dc3545;
+            color: white;
+        }
+
+        
     </style>
+
 </head>
 <body>
 
@@ -76,7 +103,40 @@
         </div>
     </header>
 
-    
+    <main class="container py-5 px-4">
+        <div class="row bg-white border shadow-sm pt-4 px-4" data-aos="fade-up">
+            <div class="col-12 d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h4 class="fw-bold mb-0">ชั้นวางเกมส่วนตัวของคุณ</h4>
+                    <p class="text-muted mb-0">มีทั้งหมด <span id="game-count" class="text-primary fw-bold">0</span> รายการ</p>
+                </div>
+                <button class="btn btn-outline-danger btn-sm" onclick="clearLibrary()">
+                    <i class="fas fa-trash-alt me-1"></i> ล้างรายการทั้งหมด
+                </button>
+            </div>
+        </div>
+
+        <div class="row bg-white border shadow-sm p-4 mt-2" data-aos="fade-up">
+
+            <div class="col-12 d-flex justify-content-between align-items-center mb-4">
+
+                <!-- item lists ตรงนี้-->
+                <div id="library-list" class="w-100">
+                </div>
+
+                <div class="col-12 mt-5 text-center p-5 bg-light rounded-4 border-dashed d-none" id="empty-state">
+                    <i class="fas fa-dice fa-3x text-muted mb-3"></i>
+                    <h5>ยังไม่มีเกมในรายการของคุณ</h5>
+                    <p class="text-muted">ลองไปเลือกเกมที่น่าสนใจดูสิ!</p>
+                    <a href="boardgames.html" class="btn btn-primary px-4">ไปที่คลังบอร์ดเกม</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
 
     <footer class="bg-dark text-white py-4">
         <div class="container text-center">
@@ -85,6 +145,7 @@
     </footer>
 </div>
 
+<!-- Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -110,6 +171,9 @@
     </div>
 </div>
 
+</body>
+
+<!-- Animation and Bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
@@ -117,5 +181,83 @@
     duration: 500
   });
 </script>
-</body>
+
+
+
+<!-- Functions -->
+<script src="games-data.js"></script>
+<script>
+    function renderLibrary() {
+        const libraryIds = JSON.parse(localStorage.getItem('gameLibrary')) || [];
+        const listContainer = document.getElementById('library-list');
+        const emptyState = document.getElementById('empty-state');
+        const countDisplay = document.getElementById('game-count');
+        
+        // อัปเดตจำนวนรายการ
+        countDisplay.innerText = libraryIds.length;
+
+        // ตรวจสอบว่ามีข้อมูลหรือไม่
+        if (libraryIds.length === 0) {
+            listContainer.innerHTML = '';
+            emptyState.classList.remove('d-none');
+            return;
+        } else {
+            emptyState.classList.add('d-none');
+        }
+
+        let html = '';
+        // กรองข้อมูลจาก boardgames เฉพาะที่มี ID ตรงกับใน Library
+        const selectedGames = boardgames.filter(game => libraryIds.includes(game.id));
+
+        selectedGames.forEach(game => {
+            html += `
+                <div class="game-item-row p-3 mb-3 border rounded shadow-sm d-flex align-items-center bg-light" data-aos="fade-up">
+                    <div class="flex-shrink-0">
+                        <img src="${game.image}" alt="${game.name}" class="rounded shadow-sm" style="width: 140px; height: 140px; object-fit: cover;">
+                    </div>
+                    <div class="v-line d-none d-md-block"></div>
+                    <div class="flex-grow-1 ms-4">
+                        <h5 class="fw-bold mb-0">${game.name}</h5>
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle mt-2">${game.category}</span>
+                        <div class="text-muted small mb-2 mt-2">
+                            <span class="me-3"><i class="fas fa-users me-1"></i> ${game.players} คน</span>
+                            <span><i class="fas fa-clock me-1"></i> ${game.time} นาที</span>
+                        </div>
+                        <p class="text-secondary small mb-0 line-clamp-2">${game.description}</p>
+                    </div>
+                    <div class="v-line d-none d-md-block"></div>
+                    <div class="ms-4 d-flex flex-column gap-2 text-center" style="min-width: 120px;">
+                        <button class="btn btn-warning border btn-sm w-100 py-2">
+                            <i class="fas fa-calendar-check me-1"></i> ยืม
+                        </button>
+                        <button class="btn btn-outline-danger btn-sm" onclick="removeGame(${game.id})">
+                            <i class="fas fa-trash-alt"></i> ลบ
+                        </button>
+                    </div>
+                </div>
+            `;
+        });
+
+        listContainer.innerHTML = html;
+    }
+
+    function removeGame(id) {
+        let libraryIds = JSON.parse(localStorage.getItem('gameLibrary')) || [];
+        libraryIds = libraryIds.filter(gameId => gameId !== id);
+        localStorage.setItem('gameLibrary', JSON.stringify(libraryIds));
+        renderLibrary(); // รีโหลดรายการใหม่
+    }
+
+    function clearLibrary() {
+        if (confirm('คุณต้องการล้างรายการทั้งหมดใช่หรือไม่?')) {
+            localStorage.removeItem('gameLibrary');
+            renderLibrary();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', renderLibrary);
+</script>
+
+
+
 </html>

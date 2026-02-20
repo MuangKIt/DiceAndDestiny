@@ -9,7 +9,7 @@ const boardgames = [
         players: "5-75",
         time: "30-90",
         description: "เกมล่าหมาป่าสุดคลาสสิก แบ่งฝ่ายชาวบ้านและหมาป่า ใช้การบลัฟและจับโกหกเพื่อหาตัวคนร้าย",
-        image: defaultImg,
+        image: 'images/werewolf.jpg',
         isNew: false
     },
     {
@@ -18,9 +18,9 @@ const boardgames = [
         category: "Tabletop RPG",
         players: "2-7",
         time: "120-240",
-        description: "สวมบทบาทเป็นผู้กล้าในโลกแฟนตาซี ผจญภัยตามเนื้อเรื่องที่ Dungeon Master เป็นผู้กำหนด",
-        image: defaultImg,
-        isNew: true
+        description: "สวมบทบาทและผจญภัย สร้างตำนานของคุณเองผ่านการทอยลูกเต๋าและการตัดสินใจที่ท้าทาย",
+        image: 'images/dnd.jpg',
+        isNew: false
     },
     {
         id: 3,
@@ -30,7 +30,7 @@ const boardgames = [
         time: "30-60",
         description: "ตามหาอัศวินของอาเธอร์ท่ามกลางเหล่าสมุนของมอร์เดร็ด เกมที่มิตรภาพอาจจบลงที่นี่",
         image: defaultImg,
-        isNew: false
+        isNew: true
     },
     {
         id: 4,
@@ -159,6 +159,127 @@ const boardgames = [
         players: "1-4",
         time: "60-120",
         description: "สุดยอดเกมผจญภัยในตำนานที่มีเนื้อเรื่องลุ่มลึก ทุกการตัดสินใจของคุณจะเปลี่ยนทิศทางของโลก",
+        image: defaultImg,
+        isNew: false
+    },
+    // เพิ่มเติมรายการที่ 17-28
+    {
+        id: 17,
+        name: "Muffin Time",
+        category: "Party",
+        players: "2-8",
+        time: "20-40",
+        description: "เกมการ์ดสุดป่วนที่เต็มไปด้วยความกวนจาก asdfmovie สะสมการ์ดให้ครบ 10 ใบเพื่อตะโกนว่า It's Muffin Time!",
+        image: defaultImg,
+        isNew: true
+    },
+    {
+        id: 18,
+        name: "Pandemic",
+        category: "Strategy",
+        players: "2-4",
+        time: "45",
+        description: "ร่วมมือกับทีมผู้เชี่ยวชาญเพื่อยับยั้งการแพร่ระบาดของโรคร้าย 4 ชนิดทั่วโลกก่อนที่ทุกอย่างจะสายเกินไป",
+        image: defaultImg,
+        isNew: false
+    },
+    {
+        id: 19,
+        name: "Wingspan",
+        category: "Strategy",
+        players: "1-5",
+        time: "40-70",
+        description: "สวมบทบาทเป็นผู้รักนก พยายามดึงดูดนกสายพันธุ์ต่างๆ มายังเขตรักษาพันธุ์สัตว์ป่าของคุณเพื่อทำคะแนนสูงสุด",
+        image: defaultImg,
+        isNew: false
+    },
+    {
+        id: 20,
+        name: "Unstable Unicorns",
+        category: "Party / Strategy",
+        players: "2-8",
+        time: "30-45",
+        description: "สร้างกองทัพยูนิคอร์นสุดแกร่งและขัดขวางเพื่อนของคุณ เกมการ์ดที่อาจทำลายมิตรภาพได้ในพริบตา",
+        image: defaultImg,
+        isNew: false
+    },
+    {
+        id: 21,
+        name: "Taco Cat Goat Cheese Pizza",
+        category: "Party",
+        players: "2-8",
+        time: "10-15",
+        description: "เกมตบการ์ดสุดมันส์ที่ต้องใช้ความไวของมือและสมอง ใครเหลือการ์ดคนสุดท้ายคือผู้แพ้!",
+        image: defaultImg,
+        isNew: true
+    },
+    {
+        id: 22,
+        name: "Cascadia",
+        category: "Strategy",
+        players: "1-4",
+        time: "30-45",
+        description: "สร้างระบบนิเวศที่สมดุลที่สุดในแถบแปซิฟิก ผ่านการวางแผ่นพื้นที่และสัตว์ป่าให้เหมาะสมตามเงื่อนไข",
+        image: defaultImg,
+        isNew: false
+    },
+    {
+        id: 23,
+        name: "Heat: Pedal to the Metal",
+        category: "Strategy / Racing",
+        players: "1-6",
+        time: "30-60",
+        description: "สวมบทนักแข่งรถยุค 60 จัดการความร้อนของเครื่องยนต์และแซงหน้าคู่แข่งเพื่อเข้าเส้นชัยเป็นคนแรก",
+        image: defaultImg,
+        isNew: true
+    },
+    {
+        id: 24,
+        name: "The Quacks of Quedlinburg",
+        category: "Strategy / Family",
+        players: "2-4",
+        time: "45",
+        description: "สุ่มหยิบส่วนผสมเพื่อปรุงยาในหม้อใหญ่ ระวังอย่าให้หม้อระเบิดก่อนที่คุณจะปรุงเสร็จ!",
+        image: defaultImg,
+        isNew: false
+    },
+    {
+        id: 25,
+        name: "Sagrada",
+        category: "Strategy / Abstract",
+        players: "1-4",
+        time: "30-60",
+        description: "ออกแบบหน้าต่างกระจกสีในวิหารชื่อดัง ผ่านการเลือกและวางลูกเต๋าหลากสีตามเงื่อนไขสุดท้าทาย",
+        image: defaultImg,
+        isNew: false
+    },
+    {
+        id: 26,
+        name: "Sushi Go Party!",
+        category: "Party / Family",
+        players: "2-8",
+        time: "20-30",
+        description: "สนุกกับการเลือกซูชิบนสายพานที่หลากหลายขึ้น ปรุงเมนูสุดพิเศษเพื่อทำแต้มให้เหนือกว่าทุกคน",
+        image: defaultImg,
+        isNew: false
+    },
+    {
+        id: 27,
+        name: "Everdell",
+        category: "Strategy",
+        players: "1-4",
+        time: "40-80",
+        description: "ช่วยเหล่าสัตว์น้อยใหญ่สร้างเมืองในหุบเขา Everdell ผ่านฤดูกาลต่างๆ ในเกมที่ภาพสวยงามที่สุด",
+        image: defaultImg,
+        isNew: false
+    },
+    {
+        id: 28,
+        name: "Betrayal at House on the Hill",
+        category: "Adventure / Horror",
+        players: "3-6",
+        time: "60-90",
+        description: "สำรวจคฤหาสน์ร้างสุดสยองจนกว่าจะมีใครคนหนึ่งทรยศทีม และเปลี่ยนเกมให้กลายเป็นการเอาชีวิตรอด",
         image: defaultImg,
         isNew: false
     }

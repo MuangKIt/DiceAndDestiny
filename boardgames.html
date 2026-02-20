@@ -13,6 +13,7 @@
             font-family: 'Kanit', sans-serif; 
             background-color: #f8f9fa; 
             margin: 0;
+            user-select: none; 
         }
     
     
@@ -29,7 +30,7 @@
         }
 
         .main-wrapper {
-            background-color: #ffffff;
+            background-color: #fcfcfc;
             box-shadow: 0 0 40px rgba(0,0,0,0.15);
             padding: 0;
             min-height: 100vh;
@@ -92,27 +93,28 @@
 
 
     <!-- List of Board Games Interfaces -->
-    <main class="container py-5">
-    <div class="row mb-4" data-aos="fade-up">
-        <div class="col-md-12">
-            <div class="p-3 border rounded-3 bg-light d-flex flex-wrap gap-3 align-items-center justify-content-between">
-                <div class="d-flex gap-2 align-items-center">
-                    <input type="text" class="form-control" placeholder="ค้นหาชื่อเกม..." style="width: 250px;">
-                    <select class="form-select" style="width: 150px;">
-                        <option selected>ทุกแนวเกม</option>
-                        <option>Strategy</option>
-                        <option>Party</option>
-                        <option>Family</option>
-                    </select>
+    <main class="container py-4">
+        <div class="row mb-4" data-aos="fade-down">
+            <div class="col-md-12">
+                <div class="p-3 border rounded-3 bg-light d-flex flex-wrap gap-3 align-items-center justify-content-between">
+                    <div class="d-flex gap-2 align-items-center">
+                        <input type="text" class="form-control" placeholder="ค้นหาชื่อเกม..." style="width: 250px;">
+                        <select class="form-select" id="category-filter" style="width: 150px;" onchange="filterGames()">
+                            <option selected>ทุกแนวเกม</option>
+                            <option>Strategy</option>
+                            <option>Party</option>
+                            <option>Family</option>
+                            <option>Social Deduction</option>
+                            <option>Tabletop RPG</option>
+                        </select>
+                    </div>
+                    <div class="text-muted small">แสดงบอร์ดเกมทั้งหมด <span id="total-count" class="fw-bold">0</span> รายการ</div>
                 </div>
-                <div class="text-muted small">แสดงบอร์ดเกมทั้งหมด 48 รายการ</div>
             </div>
         </div>
-    </div>
 
-    <div class="row g-4" id="game-container">
-    </div>
-
+        <div class="row g-4" id="game-container">
+        </div>
     </main>
     
 
@@ -151,15 +153,24 @@
 <!-- JavaScript Files สำหรับ render boardgame items -->
 <script src="games-data.js"></script>
 <script src="render-games.js"></script>
+
+
 <script>
-    // render-games.js
-function renderBoardGames() {
+// ดึงข้อมูลรายการจาก localStorage
+let library = JSON.parse(localStorage.getItem('gameLibrary')) || [];
+
+function renderBoardGames(filteredGames = boardgames) {
     const container = document.getElementById('game-container');
+    const totalCount = document.getElementById('total-count');
     let html = '';
 
-    boardgames.forEach(game => {
-        // สร้าง Badge "ใหม่" ถ้าตัวแปร isNew เป็น true
+    totalCount.innerText = filteredGames.length;
+
+    filteredGames.forEach(game => {
+        const isAdded = library.includes(game.id);
         const newBadge = game.isNew ? '<span class="position-absolute top-0 end-0 m-2 badge bg-danger">NEW</span>' : '';
+        const btnClass = isAdded ? 'btn-success' : 'btn-outline-dark';
+        const btnText = isAdded ? '<i class="fas fa-check me-1"></i> อยู่ในรายการแล้ว' : '<i class="fas fa-plus me-1"></i> เพิ่มในรายการ';
 
         html += `
             <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-aos="zoom-in">
@@ -178,9 +189,9 @@ function renderBoardGames() {
                         <p class="card-text text-secondary small line-clamp">${game.description}</p>
                     </div>
                     <div class="card-footer bg-white border-0 pb-3">
-                            <button class="btn btn-outline-dark btn-sm w-100 hover-btn">
-                                <i class="fas fa-plus me-1"></i> เพิ่มในรายการ
-                            </button>
+                        <button onclick="toggleLibrary(${game.id})" class="btn ${btnClass} btn-sm w-100 hover-btn">
+                            ${btnText}
+                        </button>
                     </div>
                 </div>
             </div>
@@ -188,11 +199,56 @@ function renderBoardGames() {
     });
 
     container.innerHTML = html;
+    
+    // หลังจากเปลี่ยน HTML ทั้งหมด (เช่น ตอน Filter) ให้สั่ง AOS รีเฟรชตำแหน่ง
+    AOS.refresh(); 
 }
 
-// เรียกใช้งานฟังก์ชันเมื่อโหลดหน้าเว็บ
-document.addEventListener('DOMContentLoaded', renderBoardGames);
+// ฟังก์ชันสำหรับ เพิ่ม/ออก จากลิสต์ (Targeted Update)
+function toggleLibrary(gameId) {
+    const index = library.indexOf(gameId);
+    const btn = document.querySelector(`button[onclick="toggleLibrary(${gameId})"]`); // หาปุ่มที่ถูกกดโดยตรง
+    
+    if (index > -1) {
+        // กรณีเอาออก
+        library.splice(index, 1);
+        
+        // อัปเดตเฉพาะ UI ของปุ่มนั้นๆ ไม่ต้อง Render ใหม่ทั้งหน้า
+        btn.classList.replace('btn-success', 'btn-outline-dark');
+        btn.innerHTML = '<i class="fas fa-plus me-1"></i> เพิ่มในรายการ';
+    } else {
+        // กรณีเพิ่มเข้า
+        library.push(gameId);
+        
+        // อัปเดตเฉพาะ UI ของปุ่มนั้นๆ
+        btn.classList.replace('btn-outline-dark', 'btn-success');
+        btn.innerHTML = '<i class="fas fa-check me-1"></i> อยู่ในรายการแล้ว';
+    }
+    
+    // บันทึกลง localStorage
+    localStorage.setItem('gameLibrary', JSON.stringify(library));
+}
+
+// ฟังก์ชันคัดกรองหมวดหมู่
+function filterGames() {
+    const selectedCategory = document.getElementById('category-filter').value;
+    
+    if (selectedCategory === 'ทุกแนวเกม') {
+        renderBoardGames(boardgames);
+    } else {
+        const filtered = boardgames.filter(game => 
+            game.category.includes(selectedCategory)
+        );
+        renderBoardGames(filtered);
+    }
+}
+
+// เรียกใช้งานครั้งแรกเมื่อโหลดหน้า
+document.addEventListener('DOMContentLoaded', () => {
+    renderBoardGames(boardgames);
+});
 </script>
+
 
 <!-- AOS Animation Library -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

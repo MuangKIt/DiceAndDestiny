@@ -14,10 +14,11 @@
             background-color: #e9ecef; /* ปรับพื้นหลังเข้มขึ้นนิดหน่วยเพื่อให้ Wrapper เด่น */
             margin: 0;
             padding: 0;
+            user-select: none; 
         }
 
         .main-wrapper {
-            background-color: #ffffff;
+            background-color: #fcfcfc;
             box-shadow: 0 0 40px rgba(0,0,0,0.15);
             padding: 0;
             min-height: 100vh;
@@ -124,7 +125,7 @@
                 <div class="info-item px-3 mt-4" data-aos="fade-down" data-aos-delay="600">
                     <i class="fas fa-paper-plane fa-4x"></i>
                     <h5 class="fw-bold mb-2 mt-4">Contact Us</h5>
-                    <p class="text-muted mb-0 fs-5 fw-light">089-444-xxxx | info@dice.com</p>
+                    <p class="text-muted mb-0 fs-5 fw-light">089-444-xxxx | DiceDestiney@info.com</p>
                     <div class="social-icons mt-2">
                         <a href="#" class="me-2"><i class="fab fa-facebook fa-2x"></i></a>
                         <a href="#" class="me-2"><i class="fab fa-instagram fa-2x"></i></a>
@@ -146,7 +147,7 @@
                 <div class="card shadow-sm h-100">
                     <img src="images\dnd.jpg" class="card-img-top" alt="D&D">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-bold">D&D</h5>
+                        <h5 class="card-title fw-bold">Dungeons & Dragons</h5>
                         <p class="card-text text-muted small">สวมบทบาทเป็นผู้กล้าในโลกแฟนตาซี ผจญภัยตามเนื้อเรื่องที่ Dungeon Master เป็นผู้กำหนด</p>
                         <button class="btn btn-outline-dark btn-sm w-100 hover-btn">
                             <i class="fas fa-plus me-1"></i> เพิ่มในรายการ
@@ -159,7 +160,7 @@
                 <div class="card shadow-sm h-100">
                     <img src="images\werewolf.jpg" class="card-img-top" alt="WereWolf">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title fw-bold">WereWolf</h5>
+                        <h5 class="card-title fw-bold">Ultimate Werewolf</h5>
                         <p class="card-text text-muted small">เกมล่าหมาป่าสุดคลาสสิก แบ่งฝ่ายชาวบ้านและหมาป่า ใช้การบลัฟและจับโกหกเพื่อหาตัวคนร้าย</p>
                         <button class="btn btn-outline-dark btn-sm w-100 hover-btn">
                             <i class="fas fa-plus me-1"></i> เพิ่มในรายการ
@@ -224,10 +225,5 @@
   });
 </script>
 
-<script>
-    function addToMyList(gameName) {
-        alert(gameName + " ถูกเพิ่มลงในรายการ 'My List' แล้ว!");
-    }
-</script>
 </body>
 </html>
