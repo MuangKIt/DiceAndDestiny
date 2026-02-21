@@ -29,7 +29,7 @@ const boardgames = [
         players: "5-10",
         time: "30-60",
         description: "ตามหาอัศวินของอาเธอร์ท่ามกลางเหล่าสมุนของมอร์เดร็ด เกมที่มิตรภาพอาจจบลงที่นี่",
-        image: defaultImg,
+        image: 'images/the_resistance_avalon.jpg',
         isNew: true
     },
     {
@@ -39,7 +39,7 @@ const boardgames = [
         players: "2-6",
         time: "45",
         description: "เมื่อคนหนึ่งเป็นผี และคนอื่นเป็นนักสืบ ต้องใช้วิธีติดต่อสื่อสารสุดแปลกเพื่อไขคดีฆาตกรรม",
-        image: defaultImg,
+        image: 'images/paranormal_detectives.jpg',
         isNew: true
     },
     {
@@ -49,7 +49,7 @@ const boardgames = [
         players: "3-4",
         time: "60-120",
         description: "สร้างบ้าน สร้างเมือง และแลกเปลี่ยนทรัพยากรบนเกาะ Catan เพื่อเป็นผู้ครอบครองที่ยิ่งใหญ่ที่สุด",
-        image: defaultImg,
+        image: 'images/catan.jpg',
         isNew: false
     },
     {
@@ -59,7 +59,7 @@ const boardgames = [
         players: "2-5",
         time: "15",
         description: "เกมการ์ดแนว Russian Roulette ที่มีน้องแมวระเบิดสุดกวน ใครจั่วโดนแมวระเบิดคือแพ้!",
-        image: defaultImg,
+        image: 'images/exploding_kittens.jpg',
         isNew: false
     },
     {
@@ -69,7 +69,7 @@ const boardgames = [
         players: "2-4",
         time: "30",
         description: "รับบทเป็นพ่อค้าอัญมณี สะสมเพชรเพื่อซื้อการ์ดและรับคะแนนเกียรติยศจากเหล่าขุนนาง",
-        image: defaultImg,
+        image: 'images/splendor.jpg',
         isNew: false
     },
     {
@@ -79,7 +79,7 @@ const boardgames = [
         players: "3-6",
         time: "30",
         description: "ใช้จินตนาการผ่านภาพวาดสุดสวย ทายใจเพื่อนจากคำใบ้ปริศนาที่เต็มไปด้วยความหมายแฝง",
-        image: defaultImg,
+        image: 'images/dixit.jpg',
         isNew: false
     },
     {
@@ -89,7 +89,7 @@ const boardgames = [
         players: "2-5",
         time: "30-60",
         description: "วางเส้นทางรถไฟเชื่อมต่อเมืองต่างๆ ทั่วอเมริกา ยิ่งระยะทางยาว คะแนนยิ่งเยอะ",
-        image: defaultImg,
+        image: 'images/ticket_to_ride.jpg',
         isNew: false
     },
     {
@@ -99,7 +99,7 @@ const boardgames = [
         players: "2-8+",
         time: "15-20",
         description: "แบ่งทีมแข่งกันใบ้คำด้วยรหัสลับ ทีมไหนทายชื่อสายลับของตัวเองครบก่อนเป็นฝ่ายชนะ",
-        image: defaultImg,
+        image: 'images/codenames.jpg',
         isNew: true
     },
     {
@@ -109,7 +109,7 @@ const boardgames = [
         players: "2-4",
         time: "30-45",
         description: "ตกแต่งผนังพระราชวังด้วยกระเบื้องหลากสี วางแผนการหยิบให้คุ้มค่าที่สุดเพื่อแต้มสูงสุด",
-        image: defaultImg,
+        image: 'images/azul.jpg',
         isNew: false
     },
     {
@@ -119,7 +119,7 @@ const boardgames = [
         players: "4-12",
         time: "20-40",
         description: "ล่าแม่มดในเมืองซาเลม ระวังความกลัวจะครอบงำจนทำให้คุณจับคนบริสุทธิ์เข้าคุก!",
-        image: defaultImg,
+        image: 'images/salem_1692.jpg',
         isNew: true
     },
     {
@@ -129,7 +129,7 @@ const boardgames = [
         players: "2-6",
         time: "15",
         description: "ใช้ความสามารถของตัวละครลับเข้ายึดอำนาจ ใครจะโกหกได้เนียนกว่ากันเพื่ออยู่รอดเป็นคนสุดท้าย",
-        image: defaultImg,
+        image: 'images/coups.jpg',
         isNew: false
     },
     {
@@ -139,7 +139,7 @@ const boardgames = [
         players: "2-7",
         time: "30",
         description: "สร้างสิ่งมหัศจรรย์ของโลกผ่านการดราฟการ์ด พัฒนาอารยธรรมและการทหารให้เหนือกว่าใคร",
-        image: defaultImg,
+        image: 'images/7_wonders.jpg',
         isNew: false
     },
     {
@@ -149,7 +149,7 @@ const boardgames = [
         players: "2-4",
         time: "60-90",
         description: "สงครามในป่าใหญ่ของเหล่าสรรพสัตว์ แต่ละเผ่าพันธุ์มีวิธีการเล่นและเงื่อนไขการชนะที่ต่างกันสิ้นเชิง",
-        image: defaultImg,
+        image: 'images/root.jpg',
         isNew: true
     },
     {
@@ -159,10 +159,10 @@ const boardgames = [
         players: "1-4",
         time: "60-120",
         description: "สุดยอดเกมผจญภัยในตำนานที่มีเนื้อเรื่องลุ่มลึก ทุกการตัดสินใจของคุณจะเปลี่ยนทิศทางของโลก",
-        image: defaultImg,
+        image: 'images/gloomhaven.jpg',
         isNew: false
     },
-    // เพิ่มเติมรายการที่ 17-28
+
     {
         id: 17,
         name: "Muffin Time",
@@ -170,7 +170,7 @@ const boardgames = [
         players: "2-8",
         time: "20-40",
         description: "เกมการ์ดสุดป่วนที่เต็มไปด้วยความกวนจาก asdfmovie สะสมการ์ดให้ครบ 10 ใบเพื่อตะโกนว่า It's Muffin Time!",
-        image: defaultImg,
+        image: 'images/muffin_time.png',
         isNew: true
     },
     {
@@ -180,7 +180,7 @@ const boardgames = [
         players: "2-4",
         time: "45",
         description: "ร่วมมือกับทีมผู้เชี่ยวชาญเพื่อยับยั้งการแพร่ระบาดของโรคร้าย 4 ชนิดทั่วโลกก่อนที่ทุกอย่างจะสายเกินไป",
-        image: defaultImg,
+        image: 'images/pandemic.png',
         isNew: false
     },
     {
@@ -190,7 +190,7 @@ const boardgames = [
         players: "1-5",
         time: "40-70",
         description: "สวมบทบาทเป็นผู้รักนก พยายามดึงดูดนกสายพันธุ์ต่างๆ มายังเขตรักษาพันธุ์สัตว์ป่าของคุณเพื่อทำคะแนนสูงสุด",
-        image: defaultImg,
+        image: 'images/wingspan.jpg',
         isNew: false
     },
     {
@@ -200,7 +200,7 @@ const boardgames = [
         players: "2-8",
         time: "30-45",
         description: "สร้างกองทัพยูนิคอร์นสุดแกร่งและขัดขวางเพื่อนของคุณ เกมการ์ดที่อาจทำลายมิตรภาพได้ในพริบตา",
-        image: defaultImg,
+        image: 'images/unstable_unicorns.jpg',
         isNew: false
     },
     {
@@ -210,7 +210,7 @@ const boardgames = [
         players: "2-8",
         time: "10-15",
         description: "เกมตบการ์ดสุดมันส์ที่ต้องใช้ความไวของมือและสมอง ใครเหลือการ์ดคนสุดท้ายคือผู้แพ้!",
-        image: defaultImg,
+        image: 'images/taco_cat_goat_cheese_pizza.jpg',
         isNew: true
     },
     {
@@ -220,7 +220,7 @@ const boardgames = [
         players: "1-4",
         time: "30-45",
         description: "สร้างระบบนิเวศที่สมดุลที่สุดในแถบแปซิฟิก ผ่านการวางแผ่นพื้นที่และสัตว์ป่าให้เหมาะสมตามเงื่อนไข",
-        image: defaultImg,
+        image: 'images/cascadia.jpg',
         isNew: false
     },
     {
@@ -230,7 +230,7 @@ const boardgames = [
         players: "1-6",
         time: "30-60",
         description: "สวมบทนักแข่งรถยุค 60 จัดการความร้อนของเครื่องยนต์และแซงหน้าคู่แข่งเพื่อเข้าเส้นชัยเป็นคนแรก",
-        image: defaultImg,
+        image: 'images/heat_pedal_to_the_metal.jpg',
         isNew: true
     },
     {
@@ -240,7 +240,7 @@ const boardgames = [
         players: "2-4",
         time: "45",
         description: "สุ่มหยิบส่วนผสมเพื่อปรุงยาในหม้อใหญ่ ระวังอย่าให้หม้อระเบิดก่อนที่คุณจะปรุงเสร็จ!",
-        image: defaultImg,
+        image: 'images/the_quacks_of_quedlinburg.jpg',
         isNew: false
     },
     {
@@ -250,7 +250,7 @@ const boardgames = [
         players: "1-4",
         time: "30-60",
         description: "ออกแบบหน้าต่างกระจกสีในวิหารชื่อดัง ผ่านการเลือกและวางลูกเต๋าหลากสีตามเงื่อนไขสุดท้าทาย",
-        image: defaultImg,
+        image: 'images/sagrada.jpg',
         isNew: false
     },
     {
@@ -260,7 +260,7 @@ const boardgames = [
         players: "2-8",
         time: "20-30",
         description: "สนุกกับการเลือกซูชิบนสายพานที่หลากหลายขึ้น ปรุงเมนูสุดพิเศษเพื่อทำแต้มให้เหนือกว่าทุกคน",
-        image: defaultImg,
+        image: 'images/sushi_go_party.jpg',
         isNew: false
     },
     {
@@ -270,7 +270,7 @@ const boardgames = [
         players: "1-4",
         time: "40-80",
         description: "ช่วยเหล่าสัตว์น้อยใหญ่สร้างเมืองในหุบเขา Everdell ผ่านฤดูกาลต่างๆ ในเกมที่ภาพสวยงามที่สุด",
-        image: defaultImg,
+        image: 'images/everdell.jpg',
         isNew: false
     },
     {
@@ -280,7 +280,7 @@ const boardgames = [
         players: "3-6",
         time: "60-90",
         description: "สำรวจคฤหาสน์ร้างสุดสยองจนกว่าจะมีใครคนหนึ่งทรยศทีม และเปลี่ยนเกมให้กลายเป็นการเอาชีวิตรอด",
-        image: defaultImg,
+        image: 'images/betrayal_at_house_on_the_hill.jpg',
         isNew: false
     }
 ];
