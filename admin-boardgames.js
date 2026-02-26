@@ -22,10 +22,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const savedGames = localStorage.getItem('adminBoardgamesDB');
     
     if (savedGames) {
-        // ถ้าเคยบันทึกไว้แล้ว ให้ใช้ข้อมูลจาก LocalStorage
         localAdminGames = JSON.parse(savedGames);
+        
+        // --- เพิ่มเงื่อนไขตรงนี้ ---
+        // เช็คว่าข้อมูลเก่าที่ดึงมา มีตัวแปร quantity หรือไม่ (เผื่อเป็นข้อมูลเก่า)
+        // ถ้าไม่มี (undefined) ให้บังคับดึงข้อมูลใหม่จาก games-data.js มาทับเลย
+        if (localAdminGames.length > 0 && typeof localAdminGames[0].quantity === 'undefined') {
+            console.log("ตรวจพบข้อมูลเวอร์ชันเก่า กำลังอัปเดตข้อมูลใหม่...");
+            localAdminGames = [...boardgames];
+            saveToDB(); 
+        }
     } else {
-        // ถ้าเข้าเว็บครั้งแรก ดึงข้อมูลเริ่มต้นจากตัวแปร boardgames (ในไฟล์ games-data.js)
+        // ถ้าเข้าเว็บครั้งแรก ดึงข้อมูลเริ่มต้นจากตัวแปร boardgames
         localAdminGames = [...boardgames];
         saveToDB(); 
     }
