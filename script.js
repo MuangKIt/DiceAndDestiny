@@ -83,7 +83,7 @@ function checkLoginStatus() {
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userDropdown">
                     <li><a class="dropdown-item" href="#"><i class="fas fa-th-large me-2"></i> Dashboard</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog me-2"></i> Account details</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog me-2"></i>Account details</a></li>
                     <li><a class="dropdown-item" href="#"><i class="fas fa-map-marker-alt me-2"></i> Address</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item text-danger" href="#" onclick="logout()">
@@ -112,3 +112,18 @@ window.onscroll = function() {
         nav.classList.remove('scrolled');
     }
 };
+
+
+
+/* ฟังก์ชันเข้าสู่หน้า Admin ด้วยรหัสผ่าน */
+function accessAdminPage() {
+    const password = prompt("กรุณากรอกรหัสผ่านผู้ดูแลระบบ:");
+    
+    // ตั้งรหัสผ่านง่ายๆ เป็น 'admin123'
+    if (password === 'admin123') {
+        alert("เข้าสู่ระบบสำเร็จ");
+        window.location.href = 'admin-dashboard.html';
+    } else if (password !== null) {
+        alert("รหัสผ่านไม่ถูกต้อง กรุณาลองใหม่");
+    }
+}
