@@ -29,7 +29,6 @@
                 <a href="admin-boardgames-manage.html" class="sidebar-link">
                     <i class="fas fa-boxes me-2"></i> Manage Boardgames
                 </a>
-                
                 <a href="#" class="sidebar-link">
                     <i class="fas fa-hand-holding-usd me-2"></i> Boardgame Buyback
                 </a>
@@ -56,7 +55,6 @@
 
         <main class="admin-content">
             <div class="bg-white shadow-sm px-4 py-3 d-flex justify-content-between align-items-center">
-                
                 <div class="fw-bold fs-4 text-dark">
                     <i class="fas fa-tachometer-alt me-2" style="color: #5386d3;"></i> Dashboard
                 </div>
@@ -83,9 +81,184 @@
             </div>
             
             <div class="admin-inner-content">
-                <div class="card border-0 shadow-sm rounded-4 p-5 text-center bg-white h-50">
-                    <p class="text-muted fs-5 mb-0">พื้นที่สำหรับแสดงสถิติและข้อมูลภาพรวมของระบบ</p>
+                
+                <div class="row g-4 mb-4" data-aos="fade-up">
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <h6 class="text-muted mb-1">สมาชิกทั้งหมด</h6>
+                                    <h3 class="fw-bold mb-0">1,254</h3>
+                                    <small class="text-success"><i class="fas fa-arrow-up me-1"></i> 12% เพิ่มขึ้น</small>
+                                </div>
+                                <div class="bg-primary-subtle p-3 rounded-circle text-primary">
+                                    <i class="fas fa-users fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <h6 class="text-muted mb-1">จองห้องวันนี้</h6>
+                                    <h3 class="fw-bold mb-0">18</h3>
+                                    <small class="text-muted">เหลืออีก 4 ห้อง</small>
+                                </div>
+                                <div class="bg-success-subtle p-3 rounded-circle text-success">
+                                    <i class="fas fa-calendar-check fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <h6 class="text-muted mb-1">เกมที่ถูกยืมอยู่</h6>
+                                    <h3 class="fw-bold mb-0">42</h3>
+                                    <small class="text-danger">เกินกำหนด 2 รายการ</small>
+                                </div>
+                                <div class="bg-warning-subtle p-3 rounded-circle text-warning">
+                                    <i class="fas fa-dice fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm rounded-4 p-3 h-100">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <h6 class="text-muted mb-1">ผู้เข้าชมเดือนนี้</h6>
+                                    <h3 class="fw-bold mb-0">3,450</h3>
+                                    <small class="text-primary"><i class="fas fa-eye me-1"></i> Real-time</small>
+                                </div>
+                                <div class="bg-info-subtle p-3 rounded-circle text-info">
+                                    <i class="fas fa-chart-line fa-2x"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h5 class="fw-bold mb-0">สถิติการเข้าใช้งานรายสัปดาห์</h5>
+                                <select class="form-select form-select-sm" style="width: 150px;">
+                                    <option>7 วันล่าสุด</option>
+                                    <option>30 วันล่าสุด</option>
+                                </select>
+                            </div>
+                            <div class="bg-light rounded-4 d-flex align-items-center justify-content-center" style="height: 300px;">
+                                <img src="https://quickchart.io/chart?c={type:'line',data:{labels:['จ.','อ.','พ.','พฤ.','ศ.','ส.','อา.'],datasets:[{label:'ยอดการจองห้อง',data:[12,19,15,25,32,45,40],fill:false,borderColor:'blue',lineTension:0.4}]}}" 
+                                     alt="Weekly Graph" class="img-fluid rounded-4 shadow-sm" style="max-height: 280px; width: 100%;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+                            <h5 class="fw-bold mb-4">5 อันดับเกมยอดนิยม</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-2">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-dark text-white rounded-3 p-2 me-3" style="width: 40px; height: 40px; text-align: center;">1</div>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold">Ultimate Werewolf</h6>
+                                            <small class="text-muted">ยืมแล้ว 85 ครั้ง</small>
+                                        </div>
+                                    </div>
+                                    <i class="fas fa-chevron-right text-muted"></i>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-2">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-secondary text-white rounded-3 p-2 me-3" style="width: 40px; height: 40px; text-align: center;">2</div>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold">Exploding Kittens</h6>
+                                            <small class="text-muted">ยืมแล้ว 72 ครั้ง</small>
+                                        </div>
+                                    </div>
+                                    <i class="fas fa-chevron-right text-muted"></i>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-2">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-secondary text-white rounded-3 p-2 me-3" style="width: 40px; height: 40px; text-align: center;">3</div>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold">Dungeon And Dragons</h6>
+                                            <small class="text-muted">ยืมแล้ว 64 ครั้ง</small>
+                                        </div>
+                                    </div>
+                                    <i class="fas fa-chevron-right text-muted"></i>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-2">
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-secondary text-white rounded-3 p-2 me-3" style="width: 40px; height: 40px; text-align: center;">4</div>
+                                        <div>
+                                            <h6 class="mb-0 fw-bold">Splendor</h6>
+                                            <small class="text-muted">ยืมแล้ว 50 ครั้ง</small>
+                                        </div>
+                                    </div>
+                                    <i class="fas fa-chevron-right text-muted"></i>
+                                </li>
+                            </ul>
+                            <button class="btn btn-outline-primary btn-sm mt-auto w-100">ดูทั้งหมด</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" data-aos="fade-up" data-aos-delay="300">
+                    <div class="col-12">
+                        <div class="card border-0 shadow-sm rounded-4 p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h5 class="fw-bold mb-0">รายการจองล่าสุด</h5>
+                                <a href="#" class="btn btn-link text-decoration-none">จัดการทั้งหมด</a>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th class="border-0">รหัสจอง</th>
+                                            <th class="border-0">ชื่อผู้จอง</th>
+                                            <th class="border-0">ประเภทห้อง</th>
+                                            <th class="border-0">วันที่ / เวลา</th>
+                                            <th class="border-0">สถานะ</th>
+                                            <th class="border-0 text-center">จัดการ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="fw-bold">#45821</td>
+                                            <td>กิตติภณ เรืองวีระ</td>
+                                            <td>Party Room</td>
+                                            <td>26 ก.พ. | 14:00 น.</td>
+                                            <td><span class="badge bg-success">ยืนยันแล้ว</span></td>
+                                            <td class="text-center"><button class="btn btn-sm btn-light border"><i class="fas fa-edit text-primary"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">#45822</td>
+                                            <td>ชยิน จันทร์สุข</td>
+                                            <td>Standard Room</td>
+                                            <td>26 ก.พ. | 15:30 น.</td>
+                                            <td><span class="badge bg-warning text-dark">รอดำเนินการ</span></td>
+                                            <td class="text-center"><button class="btn btn-sm btn-light border"><i class="fas fa-edit text-primary"></i></button></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold">#45823</td>
+                                            <td>รัฐพงษ์ มงคลเกิด</td>
+                                            <td>Open Space</td>
+                                            <td>27 ก.พ. | 11:00 น.</td>
+                                            <td><span class="badge bg-danger">ยกเลิกแล้ว</span></td>
+                                            <td class="text-center"><button class="btn btn-sm btn-light border"><i class="fas fa-edit text-primary"></i></button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </main>     
 
@@ -93,5 +266,13 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+            duration: 800, // ความเร็วของการโผล่
+            once: true     // แสดงครั้งเดียวตอนเลื่อนเจอ
+        });
+    });
+</script>
 </body>
 </html>
